@@ -1,19 +1,17 @@
 const resolvers = {
-  Query: () => {
-    tracksForHome: (parent, args, contextValue, info) => {
-      const { dataSources } = contextValue;
-
+  Query: {
+    tracksForHome: (_, __, { dataSources }) => {
       return dataSources.trackAPI.getTracksForHome();
-    };
+    },
   },
 
-  Track: () => {
+  Track: {
     author: (parent, args, contextValue, info) => {
       const { dataSources } = contextValue;
       const { authorId } = parent.authorId;
 
       return dataSources.trackAPI.getAuthor(authorId);
-    };
+    },
   },
 };
 
