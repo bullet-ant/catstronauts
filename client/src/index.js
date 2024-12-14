@@ -3,12 +3,9 @@ import { createRoot } from "react-dom/client";
 import GlobalStyles from "./styles";
 import Pages from "./pages";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
-import dotenv from "dotenv";
-
-dotenv.config();
 
 const client = new ApolloClient({
-  uri: process.env.CATSTRONAUTS_GRAPHQL_URI,
+  uri: import.meta.env.VITE_REACT_APP_CATSTRONAUTS_GRAPHQL_URI,
   cache: new InMemoryCache(),
 });
 const root = createRoot(document.getElementById("root"));
